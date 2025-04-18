@@ -1,26 +1,24 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Card = () => {
+const Card = ({blog}) => {
   return (
-    <Link to="/blog/id">
+    <Link to={`/blog/${blog._id}`}>
       <div className="max-w-sm rounded overflow-hidden shadow-lg mb-4">
       <img
         className="w-full"
-        src="https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg"
+        src={blog.imageUrl}
         alt="Sunset in the mountains"
       />
       <div className="px-6 py-4">
-        <div className="font-bold text-xl mb-2">The Coldest Sunset</div>
+        <div className="font-bold text-xl mb-2">{blog.title}</div>
         <p className="text-gray-700 text-base">
-          Dogs can have many positive effects on the lives of their owners. They
-          influence social, emotional, and cognitive development in children,
-          promote an active lifestyle, and provide companionship
+         {blog.description}
         </p>
       </div>
       <div className="px-6 pt-4 pb-2">
         <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-          #photography
+          {blog.category}
         </span>
         <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
           #travel

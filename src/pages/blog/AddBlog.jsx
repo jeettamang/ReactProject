@@ -3,8 +3,10 @@ import axios from "axios";
 import Layout from "../../components/layout/Layout";
 import Form from './components/form/Form';
 import { baseUrl } from "../../config";
+import { useNavigate } from "react-router-dom";
 
 const AddBlog = () => {
+  const navigation=useNavigate()
 
   const handleCreateBlog = async (data) => {
     console.log(data)
@@ -18,11 +20,15 @@ const AddBlog = () => {
         }
        
       });
-      console.log(response)
+      if(response.status===201){
+        navigation.navigate('/')
+      }else{
+        alert("Something went wrong")
+      }
 
-      console.log("Blog created:", response.data);
+    
     } catch (error) {
-      console.error("Error creating blog:", error);
+   alert(error.response.data.message)
      
     }
   }

@@ -3,6 +3,7 @@ import Layout from "../../components/layout/Layout";
 import { Link } from "react-router-dom";
 
 const SingleBlog = () => {
+  
   return (
     <Layout>
       <div className="bg-gray-100 dark:bg-gray-800 py-8">
